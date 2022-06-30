@@ -10,6 +10,7 @@ import java.util.*
 
 class ListActivity : AppCompatActivity() {
     var list: MutableList<String> = mutableListOf()
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
