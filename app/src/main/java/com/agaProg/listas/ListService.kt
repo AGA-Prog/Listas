@@ -13,13 +13,14 @@ class ListService(context: Context) {
 
     //Obtener datos del fichero local lists.txt
     fun getListFromFile():MutableList<String> {
-        list = mutableListOf()
-        file.useLines {
-            list.add(it.toString())
+        if (!file.exists()) {
+            file.createNewFile()
         }
-        Log.d("Listas", "filesDir: " + context.filesDir)
+
+        list = file.readLines() as MutableList<String>
         return list
     }
+
     fun addItemToList(item: String) {
         list.add(item)
         file. printWriter().use {

@@ -12,26 +12,33 @@ import java.util.*
 
 class ListActivity : AppCompatActivity() {
     var list: MutableList<String> = mutableListOf()
-    val listService = ListService(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
-        Log.d("Debug","Open List Activity")
+        Log.d("Debug", "List Activity Open")
 
+        val listService = ListService(this)
         list = listService.getListFromFile()
-
-        val newItem = findViewById<Button>(R.id.newButton)
-        newItem.setOnClickListener {
-            addNewItem()
+        list.forEach {
+            addItemToLayout(it)
         }
-    }
-    private fun addNewItem() {
-        val randomText: String = Date().toString()
-        list.add(randomText)
 
+/*        val newItem = findViewById<Button>(R.id.newButton)
+        newItem.setOnClickListener {
+            addNewItem(listService)
+        } */
+    }
+
+    private fun addNewItem(service: ListService) {
+        val randomText = Date().toString()
+        service.addItemToList(randomText)
+        addItemToLayout(randomText)
+    }
+
+    private fun addItemToLayout(text: String) {
         val textView = TextView(this)
-        textView.text = randomText
+        textView.text = text
 
         val listLayout = findViewById<LinearLayout>(R.id.listLayout)
         listLayout.addView(textView)
