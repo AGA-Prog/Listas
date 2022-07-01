@@ -6,37 +6,72 @@
     tools:context="com.agaProg.listas.ItemDetailFragment">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/titleField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/title_label"
-            android:layout_marginBottom="@dimen/item_detail_margin"
-            android:layout_marginLeft="@dimen/item_detail_margin"
-            android:layout_marginRight="@dimen/item_detail_margin">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/descriptionField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/description_label"
-            android:layout_marginBottom="@dimen/item_detail_margin"
             android:layout_marginLeft="@dimen/item_detail_margin"
             android:layout_marginRight="@dimen/item_detail_margin"
-            android:layout_marginTop="0">
+            android:layout_marginBottom="@dimen/item_detail_margin"
+            android:hint="@string/title_label">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/titleField"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_detail_margin"
+            android:layout_marginRight="@dimen/item_detail_margin"
+            android:layout_marginBottom="@dimen/item_detail_margin"
+            android:hint="@string/description_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descriptionField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/deleteItemButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/item_detail_margin"
+                android:layout_marginBottom="@dimen/item_detail_margin"
+                android:text="@string/delete_button" />
+
+            <Button
+                android:id="@+id/cancelItemButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/item_detail_margin"
+                android:layout_marginBottom="@dimen/item_detail_margin"
+                android:text="@string/cancel_button" />
+
+            <Button
+                android:id="@+id/saveItemButton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/item_detail_margin"
+                android:layout_marginBottom="@dimen/item_detail_margin"
+                android:text="@string/save_button" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>
